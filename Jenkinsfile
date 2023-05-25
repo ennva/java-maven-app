@@ -53,6 +53,7 @@ pipeline {
             steps {
                 script {
                     echo 'deploying docker image...'
+		    // need to install in the macchine gettext-tools which content envsubst command
                     sh 'envsubst < kubernetes/deployment.yaml | kubectl apply -f -'
                     sh 'envsubst < kubernetes/service.yaml | kubectl apply -f -'
                 }
